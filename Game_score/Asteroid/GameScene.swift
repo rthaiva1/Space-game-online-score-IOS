@@ -23,6 +23,13 @@ class GameScene: SKScene {
     var villian:SKSpriteNode!
     var field:SKEmitterNode!
     var count:intmax_t = 0
+    var scoreL:SKLabelNode!
+    var score:Int = 0
+    {
+        didSet{
+            scoreL.text = "Score \(score)"
+        }
+    }
     
     func freezebutton()
     {
@@ -86,6 +93,11 @@ class GameScene: SKScene {
         player.position = CGPoint(x: 0, y: -(self.frame.size.height/2 - player.size.height))
         self.addChild(player)
         attacktime = Timer.scheduledTimer(timeInterval: 0.75, target: self,selector: #selector(addVillian), userInfo: nil, repeats: true)
+        scoreL = SKLabelNode(text: "Score: 0")
+        scoreL.position = CGPoint(x:100, y: self.frame.size.height-70)
+        scoreL.fontSize = 40
+        scoreL.fontColor = UIColor.white
+        score = 0
         freezebutton()
         hammerbutton()
         killbutton()
