@@ -31,6 +31,10 @@ class GameScene: SKScene {
         }
     }
     
+    let villianidentity:UInt32 = 0x1 << 1
+    let bulletidentity:UInt32 = 0x1 << 0
+    
+    
     func freezebutton()
     {
         freeze = SKSpriteNode(imageNamed: "freeze")
@@ -79,11 +83,14 @@ class GameScene: SKScene {
         villian.position = CGPoint(x: position, y: self.frame.size.height + villian.size.height)
         villian.physicsBody = SKPhysicsBody(rectangleOf :villian.size)
         villian.physicsBody?.isDynamic = true
+        villian.physicsBody?.categoryBitMask = villianidentity
+        villian.physicsBody?.contactTestBitMask = bulletidentity
+        villian.physicsBody?.collisionBitMask = 0
         self.addChild(villian)
         self.physicsWorld.gravity = CGVector(dx: 0, dy: -0.40)
         
     }
-    
+
     override func didMove(to view: SKView) {
         field = SKEmitterNode(fileNamed: "MyParticle")
         field.position = CGPoint(x: 0, y: self.frame.size.height)
@@ -112,6 +119,11 @@ class GameScene: SKScene {
         
         firenode.physicsBody = SKPhysicsBody(rectangleOf: firenode.size)
         firenode.physicsBody?.isDynamic = true
+        
+        firenode.physicsBody?.categoryBitMask = bulletidentity
+        firenode.physicsBody?.contactTestBitMask = villianidentity
+        firenode.physicsBody?.collisionBitMask = 0
+        firenode.physicsBody?.usesPreciseCollisionDetection = true
         self.addChild(firenode)
         
         let anim:TimeInterval = 0.3
@@ -183,6 +195,42 @@ class GameScene: SKScene {
     }
     }
     
+    func didBegin(_ contact: SKPhysicsContact)
+    {
+        var identity1:SKPhysicsBody
+        var identity2:SKPhysicsBody
+        
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask
+        {
+            identity1 = contact.bodyA
+            identity2 = contact.bodyB
+        }
+        else
+        {
+            identity1 = contact.bodyB
+            identity2 = contact.bodyA
+        }
+        
+        if(identity1.categoryBitMask & bulletidentity) != 0 && (identity2.categoryBitMask & villianidentity) != 0
+        {
+            collidefunction(bulletc: identity1.node as! SKSpriteNode, villianc: identity2.node as! SKSpriteNode)
+        }
+    }
+    
+    func collidefunction(bulletc:SKSpriteNode, villianc:SKSpriteNode)
+    {
+        let fire = SKEmitterNode(fileNamed: "Fire")!
+        fire.position = villian.position
+        self.addChild(fire)
+        bulletc.removeFromParent()
+        villianc.removeFromParent()
+        
+        self.run(SKAction.wait(forDuration: 2))
+        {
+            fire.removeFromParent()
+        }
+        
+    }
     override func update(_ currentTime: TimeInterval) {
     }
 }

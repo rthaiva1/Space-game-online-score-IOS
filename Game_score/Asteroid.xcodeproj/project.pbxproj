@@ -22,6 +22,8 @@
 		149C9058233AB4AE008CB97E /* AsteroidUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149C9057233AB4AE008CB97E /* AsteroidUITests.swift */; };
 		14F850FB2380DF9000A747CE /* homepage.sks in Resources */ = {isa = PBXBuildFile; fileRef = 14F850FA2380DF9000A747CE /* homepage.sks */; };
 		14F850FD2380E22A00A747CE /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F850FC2380E22A00A747CE /* Menu.swift */; };
+		14F851002382F10100A747CE /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F850FF2382F10100A747CE /* model.swift */; };
+		14F851022382F12900A747CE /* network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F851012382F12900A747CE /* network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		149C9059233AB4AE008CB97E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14F850FA2380DF9000A747CE /* homepage.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = homepage.sks; sourceTree = "<group>"; };
 		14F850FC2380E22A00A747CE /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		14F850FF2382F10100A747CE /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		14F851012382F12900A747CE /* network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,8 @@
 				141214E7234421300063177F /* smoke.sks */,
 				141214E9234424B40063177F /* MyParticle.sks */,
 				141214EA234424B40063177F /* Assets.xcassets */,
+				14F850FF2382F10100A747CE /* model.swift */,
+				14F851012382F12900A747CE /* network.swift */,
 			);
 			path = Asteroid;
 			sourceTree = "<group>";
@@ -286,9 +292,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14F851002382F10100A747CE /* model.swift in Sources */,
 				149C9038233AB4AD008CB97E /* GameScene.swift in Sources */,
 				149C903A233AB4AD008CB97E /* GameViewController.swift in Sources */,
 				14F850FD2380E22A00A747CE /* Menu.swift in Sources */,
+				14F851022382F12900A747CE /* network.swift in Sources */,
 				149C9032233AB4AD008CB97E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
