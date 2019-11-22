@@ -8,12 +8,17 @@
 
 import Foundation
 
-protocol urlprotocol: class {
-    
-}
-
-class url: NSObject, URLSessionDataDelegate {
-    weak var delegate : urlprotocol!
+class urlservice {
  
     let urlpath: String = "http://cs.binghamton.edu/~pmadden/courses/441score/getscores.php"
+    func request(endpoint: String, parameters: [String: Any], completion: (Result<model, Error>) ->Void) {
+    let url = URL(string: urlpath + endpoint)
+    
+    var request = URLRequest(url: url)
+    
+    var components = URLComponents()
+    
+    var queryItems = [URLQueryItem]()
+   
+    }
 }

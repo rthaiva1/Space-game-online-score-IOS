@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct model: Decodable{
+    let player: String
+    let game: String
+    let score: Int
+}
