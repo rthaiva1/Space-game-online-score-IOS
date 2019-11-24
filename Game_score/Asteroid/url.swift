@@ -15,7 +15,7 @@ class urlservice {
    
     let url = URL(string: urlpath + endpoint)
     
-    var request = URLRequest(url: url)
+//    var request = URLRequest(url: url)
     
     var components = URLComponents()
     
@@ -23,7 +23,7 @@ class urlservice {
    
         let data =   components.query?.data(using: .utf8)
         
-        request.httpBody = data
-        request.httpMethod = "POST"
+        //request.httpBody = data
+        //request.httpMethod = "POST"
     }
 }

@@ -6,7 +6,9 @@
 //  Copyright © 2019 Rosh Sugathan Thaivalappil. All rights reserved.
 //
 
+import UIKit
 import SpriteKit
+import GameplayKit
 
 class Menu: SKScene
 {
@@ -28,8 +30,22 @@ class Menu: SKScene
             
             if nodesArray.first?.name == "NewGame"
             {
-                let game = GameScene(size: self.size)
-                self.view?.presentScene(game)
+                if let scene = GKScene(fileNamed: "GameScene") {
+                
+                    if let sceneNode = scene.rootNode as! GameScene? {
+                        sceneNode.scaleMode = .aspectFill
+                        
+                        // Present the scene
+                        if let view = self.view {
+                            view.presentScene(sceneNode)
+                            
+                            view.ignoresSiblingOrder = true
+                            
+                            view.showsFPS = true
+                            view.showsNodeCount = true
+                        }
+                    }
+                }
             }
         }
     }
