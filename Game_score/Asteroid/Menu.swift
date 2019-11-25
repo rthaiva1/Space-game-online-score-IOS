@@ -49,26 +49,23 @@ class Menu: SKScene
             }
             if nodesArray.first?.name == "HighScore"
             {
-                //todo
-                guard let urlpath = URL(string: "https://cs.binghamton.edu/~pmadden/courses/441score/getscores.php") else{
-                    return
-                }
-                        let urlsession = URLSession.shared
-                        URLSession.shared.dataTask(with: urlpath){ (data, response , error) in
-                            if response != nil{
-                                print(response)
-                            }
-                            
-                            if let data = data{
-                                print(data)
-                                do{
-                                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                                print(json)
-                                } catch {
-                                    print(error)
-                                }
-                            }
-                        }.resume()
+                        if let scene = GKScene(fileNamed: "HighScore") {
+                       
+                           if let sceneNode = scene.rootNode as! viewscore? {
+                               sceneNode.scaleMode = .aspectFill
+                               
+                               // Present the scene
+                               if let view = self.view {
+                                   view.presentScene(sceneNode)
+                                   
+                                   view.ignoresSiblingOrder = true
+                                   
+                                   view.showsFPS = true
+                                   view.showsNodeCount = true
+                               }
+                           }
+                       }
+       
             }
         }
     }
