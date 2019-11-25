@@ -47,6 +47,29 @@ class Menu: SKScene
                     }
                 }
             }
+            if nodesArray.first?.name == "HighScore"
+            {
+                //todo
+                guard let urlpath = URL(string: "https://cs.binghamton.edu/~pmadden/courses/441score/getscores.php") else{
+                    return
+                }
+                        let urlsession = URLSession.shared
+                        URLSession.shared.dataTask(with: urlpath){ (data, response , error) in
+                            if response != nil{
+                                print(response)
+                            }
+                            
+                            if let data = data{
+                                print(data)
+                                do{
+                                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                                print(json)
+                                } catch {
+                                    print(error)
+                                }
+                            }
+                        }.resume()
+            }
         }
     }
 }
