@@ -8,8 +8,15 @@
 
 import Foundation
 
-struct model: Decodable{
-    let player: String
+struct model: Decodable
+{
     let game: String
-    let score: Int
+    let player: String
+    let score: String
+    
+    init(dictionary: [String: Any]) {
+        self.game = dictionary["game"] as? String ?? ""
+        self.player = dictionary["player"] as? String ?? ""
+        self.score = dictionary["score"] as? String ?? ""
+    }
 }
