@@ -1,9 +1,11 @@
 # Get_Score
 # Astroid Game
 This IOS application is built on spritkit, this is a space game where we have a player, villian
-The game is about player trying to destroy the enemies
+The game is about player trying to destroy the enemies 
 
 Description:-
+The menu gives an option to start a new game and display the highscores, if you click on high scores you will get list scores updated on my sql server.
+
 So the one in yellow at bottom is our player and villian's will be coming continously to destroy our player
 
 Player special abilities:-
@@ -17,20 +19,22 @@ Idea:- I always played space game but I wished the player has some cool features
 
 Future update: Add feature like boss and difficulty level
 
-Total commits :- 12 commits
+Total commits :- 15 commits
 
-Days worked on :- 7 days
+Days worked on :- 8 days
 
 Day 1:- created repository and made a plan for the project
 
-Day 2:- Started with background for the space game
+Day 2:- Started with a menu page for my game
 
-Day 3:- Added player for the space game
+Day 3:- Tried adding collisions so that to keep score count
 
-Day 4:- Added Enemies who come randomly from different locations to destroy the player
+Day 4:- Started with adding code for URL connectivity
 
-Day 5:- Gave bullets to player for destroying enemies
+Day 5:- Continued working on getting data from server
 
-Day 6:-  Added functionality like freeze, time, hammer and kill for the Player
+Day 6:-  Fixed bugs and successfullt retrieved data from my sql database
 
-Day 7:- Fixed bugs and made this functionality working
+Day 7:-  Started working on the high score scene to display the retrieved data from my sql
+
+Day 8:- Successfuly displayed the data 

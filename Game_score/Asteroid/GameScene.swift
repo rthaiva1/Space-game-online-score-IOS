@@ -25,12 +25,6 @@ class GameScene: SKScene {
     var count:intmax_t = 0
     var scoreL:SKLabelNode!
     var score:Int = 0
-    {
-        didSet{
-            scoreL.text = "Score \(score)"
-        }
-    }
-    
     let villianidentity:UInt32 = 0x1 << 1
     let bulletidentity:UInt32 = 0x1 << 0
     
@@ -105,6 +99,7 @@ class GameScene: SKScene {
         scoreL.fontSize = 40
         scoreL.fontColor = UIColor.white
         score = 0
+        addChild(scoreL)
         freezebutton()
         hammerbutton()
         killbutton()
